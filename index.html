@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+    </head>
+    <body>
+
+        <div id="content">
+
+            <h1 class="logo">codereviews.co</h1>
+
+            <h2 class="pitch">Weekly iOS code reviews from world experts</h2>
+
+            <!-- <p>Pricing is $595/month. Set up is easy: sign up below and add <a href="https://github.com/drewcrawford">drewcrawford</a> to the Github repository you want me to review.</p> -->
+
+            <!-- <h3 class="clients">Clients</h3>
+
+            <p>Code Foundations currently has two clients. Here's what they have to say:</p>
+
+            <blockquote>Drew's reviews are excellent essays about decisions I'm making right now. I'm learning so much, probably improving three times as fast.
+            <cite>Eytan Levit</cite>
+            </blockquote>
+
+            <blockquote>I hardly see our code, so I get no exposure to one of our most critical assets. Drew's reviews give me clear insight into where we can improve.
+            <cite>David Katz</cite>
+            </blockquote> -->
+
+            <a class="signup" href="">Sign Up &#183; $895/month</a>
+
+            <!-- <p class="after-signup">Your first code review arrives within three business days.</p>  -->
+
+            <script src="https://checkout.stripe.com/checkout.js"></script>
+            <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+            <script>
+              var handler = StripeCheckout.configure({
+                key: 'pk_test_QFE7itC3d1KZwzNnTNSkgbZ5',
+                image: 'img/square-image.png',
+                token: function(token) {
+                  // Use the token to create the charge with a server-side script.
+                  // You can access the token ID with `token.id`
+                }
+              });
+
+              $('a.signup').on('click', function(e) {
+                // Open Checkout with further options
+                handler.open({
+                  name: 'codereviews.co',
+                  description: '$895/month',
+                  allowRememberMe: 'false',
+                  amount: 89500
+                });
+                e.preventDefault();
+              });
+
+              // Close Checkout on page navigation
+              $(window).on('popstate', function() {
+                handler.close();
+              });
+            </script>
+        </div>
+
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script>
+    </body>
+</html>
